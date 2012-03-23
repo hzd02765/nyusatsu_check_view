@@ -25,6 +25,8 @@
 <div class="container">
 	<div class="hero-unit">
 		<h1>HEADER</h1>
+		<br>
+		<a class="btn btn-primary btn-large">最新の情報を取得</a>
 	</div>
 	<div class="row">
 		<div class="span3">
@@ -55,72 +57,28 @@
 	</div>
 	<div class="row">
 		<div class="span16">
-		<p>詳細</p>
-		<ul>
-			<li>
-				id・・・<span id="anken_id"></span>
-			</li>
-			<li>
-				anken_no・・・
-				<span id="anken_no"></span>
-			</li>
-			<li>
-				nyusatsu_system・・・
-				<span id="anken_nyusatsu_system"></span>
-			</li>
-			<li>
-				nyusatsu_type・・・
-				<span id="anken_nyusatsu_type"></span>
-			</li>
-			<li>
-				keishu_cd・・・
-				<span id="anken_keishu_cd"></span>
-			</li>
-			<li>
-				public_flag・・・
-				<span id="anken_public_flag"></span>
-			</li>
-			<li>
-				gyoumu_kbn_1・・・
-				<span id="anken_gyoumu_kbn_1"></span>
-			</li>
-			<li>
-				gyoumu_kbn_2・・・
-				<span id="anken_gyoumu_kbn_2"></span>
-			</li>
-			<li>
-				anken_name・・・
-				<span id="anken_name"></span>
-			</li>
-			<li>
-				kasitu_name・・・
-				<span id="anken_kasitu_name"></span>
-			</li>
-			<li>
-				tender_date・・・
-				<span id="anken_tender_date"></span>
-			</li>
-			<li>
-				anken_url・・・
-				<span id="anken_url"></span>
-			</li>
-			<li>
-				version_no・・・
-				<span id="anken_version_no"></span>
-			</li>
-			<li>
-				delete_flag・・・
-				<span id="anken_delete_flag"></span>
-			</li>
-			<li>
-				ins_date・・・
-				<span id="anken_ins_date"></span>
-			</li>
-			<li>
-				upd_date・・・
-				<span id="anken_upd_date"></span>
-			</li>
-		</ul>
+			<p>詳細</p>
+
+			<table class="table table-bordered">
+				<tbody>
+					<tr><th>id</th><td style="width:800px;"><span id="anken_id"></span></td></tr>
+					<tr><th>anken_no</th><td><span id="anken_no"></span></td></tr>
+					<tr><th>nyusatsu_system</th><td><span id="anken_nyusatsu_system"></span></td></tr>
+					<tr><th>nyusatsu_type</th><td><span id="anken_nyusatsu_type"></span></td></tr>
+					<tr><th>keishu_cd</th><td><span id="anken_keishu_cd"></span></td></tr>
+					<tr><th>public_flag</th><td><span id="anken_public_flag"></span></td></tr>
+					<tr><th>gyoumu_kbn_1</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
+					<tr><th>gyoumu_kbn_2</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
+					<tr><th>anken_name</th><td><span id="anken_name"></span></td></tr>
+					<tr><th>kasitu_name</th><td><span id="anken_kasitu_name"></span></td></tr>
+					<tr><th>tender_date</th><td><span id="anken_tender_date"></span></td></tr>
+					<tr><th>anken_url</th><td><span id="anken_url"></span></td></tr>
+					<tr><th>version_no</th><td><span id="anken_version_no"></span></td></tr>
+					<tr><th>delete_flag</th><td><span id="anken_delete_flag"></span></td></tr>
+					<tr><th>ins_date</th><td><span id="anken_ins_date"></span></td></tr>
+					<tr><th>upd_date</th><td><span id="anken_upd_date"></span></td></tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<footer>

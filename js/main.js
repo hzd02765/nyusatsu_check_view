@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	// 案件TYPEを選択
 	$('#kind').change(function(){
 		$('#kbn1').empty();		
 		$('#kbn1').append($('<option>').val('').text(''));
@@ -22,6 +23,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+	// 大分類を選択
 	$('#kbn1').change(function(){
 		$('#kbn2').empty();		
 		$('#kbn2').append($('<option>').val('').text(''));
@@ -46,6 +48,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+	// 小分類を選択
 	$('#kbn2').change(function(){
 		$('#anken').empty();
 		$('#anken').append($('<option>').val('').text(''));
@@ -69,13 +72,11 @@ $(document).ready(function(){
 			}
 		});
 	});
+	// 案件を選択
 	$('#anken').change(function(){
 		if('' == $(this).val()){
 			return true;
 		}
-		
-		// 値の代入
-		$('#anken_id').text('15');
 		
 		var data = 'anken_id=' + $(this).val();
 		$.ajax({
@@ -84,6 +85,7 @@ $(document).ready(function(){
 			data: data,
 			dataType: 'XML',
 			success: function(result){
+				// 値の代入
 				$('Item', result).each(function(){
 					$('#anken_id').text($('ANKEN_ID', this).text());
 					$('#anken_no').text($('ANKEN_NO', this).text());
