@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	// 最新の情報を取得
+	$('#get_new_info').click(function(){
+		alert('実装予定です。');
+		// TODO
+	});
 	// 案件TYPEを選択
 	$('#kind').change(function(){
 		$('#kbn1').empty();		

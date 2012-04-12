@@ -8,7 +8,8 @@
 	<script src="./js/main.js"></script>
 	<style>
 		body{
-			background-color:FFFFFF;
+			padding-top:10px;
+			// background-color:FFFFFF;
 		}
 		h1{
 			// background-color:green;
@@ -26,7 +27,7 @@
 	<div class="hero-unit">
 		<h1>HEADER</h1>
 		<br>
-		<a class="btn btn-primary btn-large">最新の情報を取得</a>
+		<a class="btn btn-primary btn-large" id="get_new_info">最新の情報を取得</a>
 	</div>
 	<div class="row">
 		<div class="span3">
