@@ -92,23 +92,45 @@ $(document).ready(function(){
 			success: function(result){
 				// 値の代入
 				$('Item', result).each(function(){
-					$('#anken_id').text($('ANKEN_ID', this).text());
+					// 案件番号
 					$('#anken_no').text($('ANKEN_NO', this).text());
-					$('#anken_nyusatsu_system').text($('ANKEN_NYUSATSU_SYSTEM', this).text());
-					$('#anken_nyusatsu_type').text($('ANKEN_NYUSATSU_TYPE', this).text());
-					$('#anken_keishu_cd').text($('ANKEN_KEISHU_CD', this).text());
-					$('#anken_public_flag').text($('ANKEN_PUBLIC_FLAG', this).text());
-					$('#anken_gyoumu_kbn_1').text($('ANKEN_GYOUMU_KBN_1', this).text());
-					$('#anken_gyoumu_kbn_2').text($('ANKEN_GYOUMU_KBN_2', this).text());
-					$('#anken_name').text($('ANKEN_ANKEN_NAME', this).text());
-					$('#anken_kasitu_name').text($('ANKEN_KASITU_NAME', this).text());
+					// URL
+					$('#anken_url').attr('href', $('ANKEN_URL', this).text());
+					$('#anken_url').text($('ANKEN_URL', this).text());
+					// 案件名(事業年度・名称)
+					$('#anken_name').text($('ANKEN_NAME', this).text());
+					// 契約種別
+					$('#anken_keishu_name').text($('ANKEN_KEISHU_NAME', this).text());
+					// 対象業者の地域要件
+					$('#anken_company_area').text($('ANKEN_COMPANY_AREA', this).text());
+					// 公開開始日時
+					$('#anken_open_date').text($('ANKEN_OPEN_DATE', this).text());
+					// 公開終了日時
+					$('#anken_close_date').text($('ANKEN_CLOSE_DATE', this).text());
+					// 入札日時
 					$('#anken_tender_date').text($('ANKEN_TENDER_DATE', this).text());
-					$('#anken_url').text($('ANKEN_ANKEN_URL', this).text());
-					$('#anken_version_no').text($('ANKEN_VERSION_NO', this).text());
-					$('#anken_delete_flag').text($('ANKEN_DELETE_FLAG', this).text());
-					$('#anken_ins_date').text($('ANKEN_INS_DATE', this).text());
-					$('#anken_upd_date').text($('ANKEN_UPD_DATE', this).text());
-
+					// 入札場所
+					$('#anken_tender_place').text($('ANKEN_TENDER_PLACE', this).text());
+					// 履行期限
+					$('#anken_limit_date').text($('ANKEN_LIMIT_DATE', this).text());
+					// 業務大分類
+					$('#anken_gyoumu_kbn_1').text($('ANKEN_GYOUMU_KBN_1', this).text());
+					// 業務小分類
+					$('#anken_gyoumu_kbn_2').text($('ANKEN_GYOUMU_KBN_2', this).text());
+					// 実施機関
+					$('#anken_kasitu_name').text($('ANKEN_KASITU_NAME', this).text());
+					// 担当者名・電話番号
+					$('#anken_tanto_name').text($('ANKEN_TANTO_NAME', this).text());
+					// 特記事項
+					$('#anken_notes').text($('ANKEN_NOTES', this).text());
+					// 結果表示開始日時
+					$('#anken_result_open_date').text($('ANKEN_RESULT_OPEN_DATE', this).text());
+					// 結果表示終了日時
+					$('#anken_result_close_date').text($('ANKEN_RESULT_CLOSE_DATE', this).text());
+					// 落札業者名等
+					$('#anken_raku_name').text($('ANKEN_RAKU_NAME', this).text());
+					// 落札金額（税込・円）
+					$('#anken_price').text($('ANKEN_PRICE', this).text());
 				});
 			}
 		});

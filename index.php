@@ -20,6 +20,12 @@
 		div{
 			// background-color:blue;
 		}
+		.anken-detail th{
+			width:150px;
+		}
+		.anken-detail td{
+			width:800px;
+		}
 	</style>
 </head>
 <body>
@@ -60,24 +66,27 @@
 		<div class="span16">
 			<p>詳細</p>
 
-			<table class="table table-bordered">
+			<table class="table table-bordered anken-detail">
 				<tbody>
-					<tr><th>id</th><td style="width:800px;"><span id="anken_id"></span></td></tr>
-					<tr><th>anken_no</th><td><span id="anken_no"></span></td></tr>
-					<tr><th>nyusatsu_system</th><td><span id="anken_nyusatsu_system"></span></td></tr>
-					<tr><th>nyusatsu_type</th><td><span id="anken_nyusatsu_type"></span></td></tr>
-					<tr><th>keishu_cd</th><td><span id="anken_keishu_cd"></span></td></tr>
-					<tr><th>public_flag</th><td><span id="anken_public_flag"></span></td></tr>
-					<tr><th>gyoumu_kbn_1</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
-					<tr><th>gyoumu_kbn_2</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
-					<tr><th>anken_name</th><td><span id="anken_name"></span></td></tr>
-					<tr><th>kasitu_name</th><td><span id="anken_kasitu_name"></span></td></tr>
-					<tr><th>tender_date</th><td><span id="anken_tender_date"></span></td></tr>
-					<tr><th>anken_url</th><td><span id="anken_url"></span></td></tr>
-					<tr><th>version_no</th><td><span id="anken_version_no"></span></td></tr>
-					<tr><th>delete_flag</th><td><span id="anken_delete_flag"></span></td></tr>
-					<tr><th>ins_date</th><td><span id="anken_ins_date"></span></td></tr>
-					<tr><th>upd_date</th><td><span id="anken_upd_date"></span></td></tr>
+					<tr><th>案件番号</th><td><span id="anken_no"></span></td></tr>
+					<tr><th>URL</th><td><a href="" id="anken_url" target="_blank"></a></td></tr>
+					<tr><th>案件名(事業年度・名称)</th><td><span id="anken_name"></span></td></tr>
+					<tr><th>契約種別</th><td><span id="anken_keishu_name"></span></td></tr>
+					<tr><th>対象業者の地域要件</th><td><span id="anken_company_area"></span></td></tr>
+					<tr><th>公開開始日時</th><td><span id="anken_open_date"></span></td></tr>
+					<tr><th>公開終了日時</th><td><span id="anken_close_date"></span></td></tr>
+					<tr><th>入札日時</th><td><span id="anken_tender_date"></span></td></tr>
+					<tr><th>入札場所</th><td><span id="anken_tender_place"></span></td></tr>
+					<tr><th>履行期限</th><td><span id="anken_limit_date"></span></td></tr>
+					<tr><th>業務大分類</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
+					<tr><th>業務小分類</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
+					<tr><th>実施機関</th><td><span id="anken_kasitu_name"></span></td></tr>
+					<tr><th>担当者名・電話番号</th><td><span id="anken_tanto_name"></span></td></tr>
+					<tr><th>特記事項</th><td><span id="anken_notes"></span></td></tr>
+					<tr><th>結果表示開始日時</th><td><span id="anken_result_open_date"></span></td></tr>
+					<tr><th>結果表示終了日時</th><td><span id="anken_result_close_date"></span></td></tr>
+					<tr><th>落札業者名等</th><td><span id="anken_raku_name"></span></td></tr>
+					<tr><th>落札金額（税込・円）</th><td><span id="anken_price"></span></td></tr>
 				</tbody>
 			</table>
 		</div>
