@@ -21,10 +21,10 @@
 			// background-color:blue;
 		}
 		.anken-detail th{
-			width:150px;
+			width:200px;
 		}
 		.anken-detail td{
-			width:800px;
+			width:700px;
 		}
 	</style>
 </head>
