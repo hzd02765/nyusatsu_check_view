@@ -16,6 +16,7 @@ $(document).ready(function(){
 	}
 	// 詳細を空に
 	function emptyDetail(){
+/*
 		// 案件番号
 		$('#anken_no').text('');
 		// URL
@@ -54,6 +55,10 @@ $(document).ready(function(){
 		$('#anken_raku_name').text('');
 		// 落札金額（税込・円）
 		$('#anken_price').text('');
+*/
+		$('.anken-detail tr td span').text('');
+		$('.anken-detail tr td a').attr('href', '');
+		$('.anken-detail tr td a').text('');
 	}
 	
 	// 最新の情報を取得
