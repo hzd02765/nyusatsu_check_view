@@ -26,12 +26,16 @@
 		.anken-detail td{
 			width:700px;
 		}
+		.hero-unit{
+			padding:15px;
+		}
 	</style>
 </head>
 <body>
 <div class="container">
 	<div class="hero-unit">
 		<h1>HEADER</h1>
+		<p>description</p>
 		<br>
 		<a class="btn btn-primary btn-large" id="get_new_info">最新の情報を取得</a>
 	</div>
@@ -91,8 +95,11 @@
 			</table>
 		</div>
 	</div>
-	<footer>
-		<h2>FOOTER</h2>
+	
+	<hr>
+	
+	<footer class="footer">
+		<p>FOOTER</p>
 	</footer>
 </div>
 </body>
