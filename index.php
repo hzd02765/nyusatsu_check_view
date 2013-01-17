@@ -9,16 +9,6 @@
 	<style>
 		body{
 			padding-top:10px;
-			// background-color:FFFFFF;
-		}
-		h1{
-			// background-color:green;
-		}
-		h2{
-			// background-color:yellow;
-		}
-		div{
-			// background-color:blue;
 		}
 		.anken-detail th{
 			width:200px;
