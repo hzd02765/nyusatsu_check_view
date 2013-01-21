@@ -7,34 +7,34 @@
 	<script src="./js/jquery-1.7.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			// å¤§åˆ†é¡ã‚’ç©ºã«
+			// ’Âç’Ê¬’Îà’¤ò’¶õ’¤Ë
 			function emptyKbn1(){
 				$('#kbn1').empty();		
 				$('#kbn1').append($('<option>').val('').text(''));
 			}
-			// å°åˆ†é¡ã‚’ç©ºã«
+			// ’¾®’Ê¬’Îà’¤ò’¶õ’¤Ë
 			function emptyKbn2(){
 				$('#kbn2').empty();
 				$('#kbn2').append($('<option>').val('').text(''));
 			}
-			// æ¡ˆä»¶ã‚’ç©ºã«
+			// ’°Æ’·ï’¤ò’¶õ’¤Ë
 			function emptyAnken(){
 				$('#anken').empty();
 				$('#anken').append($('<option>').val('').text(''));
 			}
-			// è©³ç´°ã‚’ç©ºã«
+			// ’¾Ü’ºÙ’¤ò’¶õ’¤Ë
 			function emptyDetail(){
 				$('.anken-detail tr td span').text('');
 				$('.anken-detail tr td a').attr('href', '');
 				$('.anken-detail tr td a').text('');
 			}
 			
-			// æœ€æ–°ã®æƒ…å ±ã‚’å–å¾—
+			// ’ºÇ’¿·’¤Î’¾ğ’Êó’¤ò’¼è’ÆÀ
 			$('#get_new_info').click(function(){
-				alert('å®Ÿè£…äºˆå®šã§ã™ã€‚');
+				alert('’¼Â’Áõ’Í½’Äê’¤Ç’¤¹’¡£');
 				// TODO
 			});
-			// æ¡ˆä»¶TYPEã‚’é¸æŠ
+			// ’°Æ’·ïTYPE’¤ò’Áª’Âò
 			$('#kind').change(function(){
 				emptyKbn1();
 				emptyKbn2();
@@ -67,7 +67,7 @@
 					}
 				});
 			});
-			// å¤§åˆ†é¡ã‚’é¸æŠ
+			// ’Âç’Ê¬’Îà’¤ò’Áª’Âò
 			$('#kbn1').change(function(){
 				emptyKbn2();
 				emptyAnken();
@@ -100,7 +100,7 @@
 					}
 				});
 			});
-			// å°åˆ†é¡ã‚’é¸æŠ
+			// ’¾®’Ê¬’Îà’¤ò’Áª’Âò
 			$('#kbn2').change(function(){
 				emptyAnken();
 				emptyDetail();
@@ -131,7 +131,7 @@
 					}
 				});
 			});
-			// æ¡ˆä»¶ã‚’é¸æŠ
+			// ’°Æ’·ï’¤ò’Áª’Âò
 			$('#anken').change(function(){
 				emptyDetail();
 				
@@ -147,87 +147,87 @@
 					dataType: 'JSON',
 					success: function(result){
 /*
-						// å€¤ã®ä»£å…¥
+						// ’ÃÍ’¤Î’Âå’Æş
 						$('Item', result).each(function(){
-							// æ¡ˆä»¶ç•ªå·
+							// ’°Æ’·ï’ÈÖ’¹æ
 							$('#anken_no').text($('ANKEN_NO', this).text());
 							// URL
 							$('#anken_url').attr('href', $('ANKEN_URL', this).text());
 							$('#anken_url').text($('ANKEN_URL', this).text());
-							// æ¡ˆä»¶å(äº‹æ¥­å¹´åº¦ãƒ»åç§°)
+							// ’°Æ’·ï’Ì¾(’»ö’¶È’Ç¯’ÅÙ’¡¦’Ì¾’¾Î)
 							$('#anken_name').text($('ANKEN_NAME', this).text());
-							// å¥‘ç´„ç¨®åˆ¥
+							// ’·À’Ìó’¼ï’ÊÌ
 							$('#anken_keishu_name').text($('ANKEN_KEISHU_NAME', this).text());
-							// å¯¾è±¡æ¥­è€…ã®åœ°åŸŸè¦ä»¶
+							// ’ÂĞ’¾İ’¶È’¼Ô’¤Î’ÃÏ’°è’Í×’·ï
 							$('#anken_company_area').text($('ANKEN_COMPANY_AREA', this).text());
-							// å…¬é–‹é–‹å§‹æ—¥æ™‚
+							// ’¸ø’³«’³«’»Ï’Æü’»ş
 							$('#anken_open_date').text($('ANKEN_OPEN_DATE', this).text());
-							// å…¬é–‹çµ‚äº†æ—¥æ™‚
+							// ’¸ø’³«’½ª’Î»’Æü’»ş
 							$('#anken_close_date').text($('ANKEN_CLOSE_DATE', this).text());
-							// å…¥æœ­æ—¥æ™‚
+							// ’Æş’»¥’Æü’»ş
 							$('#anken_tender_date').text($('ANKEN_TENDER_DATE', this).text());
-							// å…¥æœ­å ´æ‰€
+							// ’Æş’»¥’¾ì’½ê
 							$('#anken_tender_place').text($('ANKEN_TENDER_PLACE', this).text());
-							// å±¥è¡ŒæœŸé™
+							// ’Íú’¹Ô’´ü’¸Â
 							$('#anken_limit_date').text($('ANKEN_LIMIT_DATE', this).text());
-							// æ¥­å‹™å¤§åˆ†é¡
+							// ’¶È’Ì³’Âç’Ê¬’Îà
 							$('#anken_gyoumu_kbn_1').text($('ANKEN_GYOUMU_KBN_1', this).text());
-							// æ¥­å‹™å°åˆ†é¡
+							// ’¶È’Ì³’¾®’Ê¬’Îà
 							$('#anken_gyoumu_kbn_2').text($('ANKEN_GYOUMU_KBN_2', this).text());
-							// å®Ÿæ–½æ©Ÿé–¢
+							// ’¼Â’»Ü’µ¡’´Ø
 							$('#anken_kasitu_name').text($('ANKEN_KASITU_NAME', this).text());
-							// æ‹…å½“è€…åãƒ»é›»è©±ç•ªå·
+							// ’Ã´’Åö’¼Ô’Ì¾’¡¦’ÅÅ’ÏÃ’ÈÖ’¹æ
 							$('#anken_tanto_name').text($('ANKEN_TANTO_NAME', this).text());
-							// ç‰¹è¨˜äº‹é …
+							// ’ÆÃ’µ­’»ö’¹à
 							$('#anken_notes').text($('ANKEN_NOTES', this).text());
-							// çµæœè¡¨ç¤ºé–‹å§‹æ—¥æ™‚
+							// ’·ë’²Ì’É½’¼¨’³«’»Ï’Æü’»ş
 							$('#anken_result_open_date').text($('ANKEN_RESULT_OPEN_DATE', this).text());
-							// çµæœè¡¨ç¤ºçµ‚äº†æ—¥æ™‚
+							// ’·ë’²Ì’É½’¼¨’½ª’Î»’Æü’»ş
 							$('#anken_result_close_date').text($('ANKEN_RESULT_CLOSE_DATE', this).text());
-							// è½æœ­æ¥­è€…åç­‰
+							// ’Íî’»¥’¶È’¼Ô’Ì¾’Åù
 							$('#anken_raku_name').text($('ANKEN_RAKU_NAME', this).text());
-							// è½æœ­é‡‘é¡ï¼ˆç¨è¾¼ãƒ»å††ï¼‰
+							// ’Íî’»¥’¶â’³Û’¡Ê’ÀÇ’¹ş’¡¦’±ß’¡Ë
 							$('#anken_price').text($('ANKEN_PRICE', this).text());
 						});
 */
-						// æ¡ˆä»¶ç•ªå·
+						// ’°Æ’·ï’ÈÖ’¹æ
 						$('#anken_no').text(result.anken_no);
 						// URL
 						$('#anken_url').attr(result.anken_url);
 						$('#anken_url').text(result.anken_url);
-						// æ¡ˆä»¶å(äº‹æ¥­å¹´åº¦ãƒ»åç§°)
+						// ’°Æ’·ï’Ì¾(’»ö’¶È’Ç¯’ÅÙ’¡¦’Ì¾’¾Î)
 						$('#anken_name').text(result.anken_name);
-						// å¥‘ç´„ç¨®åˆ¥
+						// ’·À’Ìó’¼ï’ÊÌ
 						$('#anken_keishu_name').text(result.keishu_name);
-						// å¯¾è±¡æ¥­è€…ã®åœ°åŸŸè¦ä»¶
+						// ’ÂĞ’¾İ’¶È’¼Ô’¤Î’ÃÏ’°è’Í×’·ï
 						$('#anken_company_area').text(result.company_area);
-						// å…¬é–‹é–‹å§‹æ—¥æ™‚
+						// ’¸ø’³«’³«’»Ï’Æü’»ş
 						$('#anken_open_date').text(result.anken_open_date);
-						// å…¬é–‹çµ‚äº†æ—¥æ™‚
+						// ’¸ø’³«’½ª’Î»’Æü’»ş
 						$('#anken_close_date').text(result.anken_close_date);
-						// å…¥æœ­æ—¥æ™‚
+						// ’Æş’»¥’Æü’»ş
 						$('#anken_tender_date').text(result.tender_date);
-						// å…¥æœ­å ´æ‰€
+						// ’Æş’»¥’¾ì’½ê
 						$('#anken_tender_place').text(result.tender_place);
-						// å±¥è¡ŒæœŸé™
+						// ’Íú’¹Ô’´ü’¸Â
 						$('#anken_limit_date').text(result.limit_date);
-						// æ¥­å‹™å¤§åˆ†é¡
+						// ’¶È’Ì³’Âç’Ê¬’Îà
 						$('#anken_gyoumu_kbn_1').text(result.gyoumu_kbn_1);
-						// æ¥­å‹™å°åˆ†é¡
+						// ’¶È’Ì³’¾®’Ê¬’Îà
 						$('#anken_gyoumu_kbn_2').text(result.gyoumu_kbn_2);
-						// å®Ÿæ–½æ©Ÿé–¢
+						// ’¼Â’»Ü’µ¡’´Ø
 						$('#anken_kasitu_name').text(result.kasitu_name);
-						// æ‹…å½“è€…åãƒ»é›»è©±ç•ªå·
+						// ’Ã´’Åö’¼Ô’Ì¾’¡¦’ÅÅ’ÏÃ’ÈÖ’¹æ
 						$('#anken_tanto_name').text(result.tanto_name);
-						// ç‰¹è¨˜äº‹é …
+						// ’ÆÃ’µ­’»ö’¹à
 						$('#anken_notes').text(result.notes);
-						// çµæœè¡¨ç¤ºé–‹å§‹æ—¥æ™‚
+						// ’·ë’²Ì’É½’¼¨’³«’»Ï’Æü’»ş
 						$('#anken_result_open_date').text(result.result_open_date);
-						// çµæœè¡¨ç¤ºçµ‚äº†æ—¥æ™‚
+						// ’·ë’²Ì’É½’¼¨’½ª’Î»’Æü’»ş
 						$('#anken_result_close_date').text(result.result_close_date);
-						// è½æœ­æ¥­è€…åç­‰
+						// ’Íî’»¥’¶È’¼Ô’Ì¾’Åù
 						$('#anken_raku_name').text(result.raku_name);
-						// è½æœ­é‡‘é¡ï¼ˆç¨è¾¼ãƒ»å††ï¼‰
+						// ’Íî’»¥’¶â’³Û’¡Ê’ÀÇ’¹ş’¡¦’±ß’¡Ë
 						$('#anken_price').text(result.price);
 					}
 				});
@@ -255,60 +255,60 @@
 		<h1>HEADER</h1>
 		<p>description</p>
 		<br>
-		<a class="btn btn-primary btn-large" id="get_new_info">æœ€æ–°ã®æƒ…å ±ã‚’å–å¾—</a>
+		<a class="btn btn-primary btn-large" id="get_new_info">’ºÇ’¿·’¤Î’¾ğ’Êó’¤ò’¼è’ÆÀ</a>
 	</div>
 	<div class="row">
 		<div class="span3">
-			<p>æ¡ˆä»¶TYPE</p>
+			<p>’°Æ’·ïTYPE</p>
 			<select id='kind' size="10">
 				<option value=""></option>
-				<option value="keishu_cd=1&public_flag=0">ç¾åœ¨å…¬é–‹åˆ† => ä¸€èˆ¬ç«¶äº‰å…¥æœ­</option>
-				<option value="keishu_cd=2&public_flag=0">ç¾åœ¨å…¬é–‹åˆ† => ç°¡æ˜“å…¬é–‹èª¿é”</option>
-				<option value="keishu_cd=1&public_flag=1">æ—¢ã«çµ‚äº†åˆ† => ä¸€èˆ¬ç«¶äº‰å…¥æœ­</option>
-				<option value="keishu_cd=2&public_flag=1">æ—¢ã«çµ‚äº†åˆ† => ç°¡æ˜“å…¬é–‹èª¿é”</option>
+				<option value="keishu_cd=1&public_flag=0">’¸½’ºß’¸ø’³«’Ê¬ => ’°ì’ÈÌ’¶¥’Áè’Æş’»¥</option>
+				<option value="keishu_cd=2&public_flag=0">’¸½’ºß’¸ø’³«’Ê¬ => ’´Ê’°×’¸ø’³«’Ä´’Ã£</option>
+				<option value="keishu_cd=1&public_flag=1">’´û’¤Ë’½ª’Î»’Ê¬ => ’°ì’ÈÌ’¶¥’Áè’Æş’»¥</option>
+				<option value="keishu_cd=2&public_flag=1">’´û’¤Ë’½ª’Î»’Ê¬ => ’´Ê’°×’¸ø’³«’Ä´’Ã£</option>
 			</select>
 		</div>
 		<div class="span3">
-			<p>å¤§åˆ†é¡</p>
+			<p>’Âç’Ê¬’Îà</p>
 			<select id='kbn1' size="10">
 			</select>
 		</div>
 		<div class="span3">
-			<p>å°åˆ†é¡</p>
+			<p>’¾®’Ê¬’Îà</p>
 			<select id='kbn2' size="10">
 			</select>
 		</div>
 		<div class="span3">
-			<p>æ¡ˆä»¶</p>
+			<p>’°Æ’·ï</p>
 			<select id='anken' size="10">
 			</select>
 		</div>
 	</div>
 	<div class="row">
 		<div class="span16">
-			<p>è©³ç´°</p>
+			<p>’¾Ü’ºÙ</p>
 
 			<table class="table table-bordered anken-detail">
 				<tbody>
-					<tr><th>æ¡ˆä»¶ç•ªå·</th><td><span id="anken_no"></span></td></tr>
+					<tr><th>’°Æ’·ï’ÈÖ’¹æ</th><td><span id="anken_no"></span></td></tr>
 					<tr><th>URL</th><td><a href="" id="anken_url" target="_blank"></a></td></tr>
-					<tr><th>æ¡ˆä»¶å(äº‹æ¥­å¹´åº¦ãƒ»åç§°)</th><td><span id="anken_name"></span></td></tr>
-					<tr><th>å¥‘ç´„ç¨®åˆ¥</th><td><span id="anken_keishu_name"></span></td></tr>
-					<tr><th>å¯¾è±¡æ¥­è€…ã®åœ°åŸŸè¦ä»¶</th><td><span id="anken_company_area"></span></td></tr>
-					<tr><th>å…¬é–‹é–‹å§‹æ—¥æ™‚</th><td><span id="anken_open_date"></span></td></tr>
-					<tr><th>å…¬é–‹çµ‚äº†æ—¥æ™‚</th><td><span id="anken_close_date"></span></td></tr>
-					<tr><th>å…¥æœ­æ—¥æ™‚</th><td><span id="anken_tender_date"></span></td></tr>
-					<tr><th>å…¥æœ­å ´æ‰€</th><td><span id="anken_tender_place"></span></td></tr>
-					<tr><th>å±¥è¡ŒæœŸé™</th><td><span id="anken_limit_date"></span></td></tr>
-					<tr><th>æ¥­å‹™å¤§åˆ†é¡</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
-					<tr><th>æ¥­å‹™å°åˆ†é¡</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
-					<tr><th>å®Ÿæ–½æ©Ÿé–¢</th><td><span id="anken_kasitu_name"></span></td></tr>
-					<tr><th>æ‹…å½“è€…åãƒ»é›»è©±ç•ªå·</th><td><span id="anken_tanto_name"></span></td></tr>
-					<tr><th>ç‰¹è¨˜äº‹é …</th><td><span id="anken_notes"></span></td></tr>
-					<tr><th>çµæœè¡¨ç¤ºé–‹å§‹æ—¥æ™‚</th><td><span id="anken_result_open_date"></span></td></tr>
-					<tr><th>çµæœè¡¨ç¤ºçµ‚äº†æ—¥æ™‚</th><td><span id="anken_result_close_date"></span></td></tr>
-					<tr><th>è½æœ­æ¥­è€…åç­‰</th><td><span id="anken_raku_name"></span></td></tr>
-					<tr><th>è½æœ­é‡‘é¡ï¼ˆç¨è¾¼ãƒ»å††ï¼‰</th><td><span id="anken_price"></span></td></tr>
+					<tr><th>’°Æ’·ï’Ì¾(’»ö’¶È’Ç¯’ÅÙ’¡¦’Ì¾’¾Î)</th><td><span id="anken_name"></span></td></tr>
+					<tr><th>’·À’Ìó’¼ï’ÊÌ</th><td><span id="anken_keishu_name"></span></td></tr>
+					<tr><th>’ÂĞ’¾İ’¶È’¼Ô’¤Î’ÃÏ’°è’Í×’·ï</th><td><span id="anken_company_area"></span></td></tr>
+					<tr><th>’¸ø’³«’³«’»Ï’Æü’»ş</th><td><span id="anken_open_date"></span></td></tr>
+					<tr><th>’¸ø’³«’½ª’Î»’Æü’»ş</th><td><span id="anken_close_date"></span></td></tr>
+					<tr><th>’Æş’»¥’Æü’»ş</th><td><span id="anken_tender_date"></span></td></tr>
+					<tr><th>’Æş’»¥’¾ì’½ê</th><td><span id="anken_tender_place"></span></td></tr>
+					<tr><th>’Íú’¹Ô’´ü’¸Â</th><td><span id="anken_limit_date"></span></td></tr>
+					<tr><th>’¶È’Ì³’Âç’Ê¬’Îà</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
+					<tr><th>’¶È’Ì³’¾®’Ê¬’Îà</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
+					<tr><th>’¼Â’»Ü’µ¡’´Ø</th><td><span id="anken_kasitu_name"></span></td></tr>
+					<tr><th>’Ã´’Åö’¼Ô’Ì¾’¡¦’ÅÅ’ÏÃ’ÈÖ’¹æ</th><td><span id="anken_tanto_name"></span></td></tr>
+					<tr><th>’ÆÃ’µ­’»ö’¹à</th><td><span id="anken_notes"></span></td></tr>
+					<tr><th>’·ë’²Ì’É½’¼¨’³«’»Ï’Æü’»ş</th><td><span id="anken_result_open_date"></span></td></tr>
+					<tr><th>’·ë’²Ì’É½’¼¨’½ª’Î»’Æü’»ş</th><td><span id="anken_result_close_date"></span></td></tr>
+					<tr><th>’Íî’»¥’¶È’¼Ô’Ì¾’Åù</th><td><span id="anken_raku_name"></span></td></tr>
+					<tr><th>’Íî’»¥’¶â’³Û’¡Ê’ÀÇ’¹ş’¡¦’±ß’¡Ë</th><td><span id="anken_price"></span></td></tr>
 				</tbody>
 			</table>
 		</div>
