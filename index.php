@@ -47,16 +47,23 @@
 				
 				var data = $(this).val();		
 				$.ajax({
-					url: './ajax/get_kbn1.php',
+					url: './_ajax_get_kbn1.php',
 					type: 'POST',
 					data: data,
-					dataType: 'XML',
+					dataType: 'JSON',
 					success: function(result){
+/*
 						$('Item', result).each(function(){
 							var value = $('KBN_CD', this).text();
 							var text = $('KBN_NAME', this).text();
 							$('#kbn1').append($('<option>').val(value).text(text));
 						});
+*/
+						for(var i in result){
+							var value = result[i];
+							var text = result[i];
+							$('#kbn1').append($('<option>').val(value).text(text));
+						}
 					}
 				});
 			});
@@ -70,19 +77,26 @@
 					return true;
 				}
 
-				
 				var data = 'gyoumu_kbn_1=' + $(this).val() + '&' + $('#kind').val();
 				$.ajax({
-					url: './ajax/get_kbn2.php',
+					url: './_ajax_get_kbn2.php',
 					type: 'POST',
 					data: data,
-					dataType: 'XML',
+					dataType: 'JSON',
 					success: function(result){
+/*
 						$('Item', result).each(function(){
 							var value = $('KBN_CD', this).text();
 							var text = $('KBN_NAME', this).text();
 							$('#kbn2').append($('<option>').val(value).text(text));
+							
 						});
+*/
+						for(var i in result){
+							var value = result[i];
+							var text = result[i];
+							$('#kbn2').append($('<option>').val(value).text(text));
+						}
 					}
 				});
 			});
@@ -97,16 +111,23 @@
 
 				var data = 'gyoumu_kbn_1=' + $('#kbn1').val() + '&gyoumu_kbn_2=' + $(this).val() + '&' + $('#kind').val();
 				$.ajax({
-					url: './ajax/get_anken.php',
+					url: './_ajax_get_anken.php',
 					type: 'POST',
 					data: data,
-					dataType: 'XML',
+					dataType: 'JSON',
 					success: function(result){
+/*
 						$('Item', result).each(function(){
 							var value = $('ANKEN_ID', this).text();
 							var text = $('ANKEN_NO', this).text();
 							$('#anken').append($('<option>').val(value).text(text));
 						});
+*/
+						for(var i in result){
+							var value = result[i].id;
+							var text = result[i].anken_no;
+							$('#anken').append($('<option>').val(value).text(text));
+						}
 					}
 				});
 			});
@@ -120,7 +141,7 @@
 				
 				var data = 'anken_id=' + $(this).val();
 				$.ajax({
-					url: './ajax/get_anken_detail.php',
+					url: './_ajax_get_anken_detail.php',
 					type: 'POST',
 					data: data,
 					dataType: 'XML',
