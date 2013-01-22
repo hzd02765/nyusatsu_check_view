@@ -17,6 +17,18 @@ for($i = 0; $i < pg_num_rows($result); $i++){
 	$limit_date = $row['limit_date'];
 	$limit_date = date('Y-m-d', strtotime($limit_date));
 	
+	$result_open_date = $row['result_open_date'];
+	if(is_null($result_open_date)) $result_open_date = '';
+	
+	$result_close_date = $row['result_close_date'];
+	if(is_null($result_close_date)) $result_close_date = '';
+	
+	$raku_name = $row['raku_name'];
+	if(is_null($raku_name)) $raku_name = '';
+	
+	$price = $row['price'];
+	if(is_null($price)) $price = '';
+	
 	$anken_list = array(
 		'id' => $row['id']
 		,'nyusatsu_system' => $row['nyusatsu_system']
@@ -38,10 +50,10 @@ for($i = 0; $i < pg_num_rows($result); $i++){
 		,'kasitu_name' => $row['kasitu_name']
 		,'tanto_name' => $row['tanto_name']
 		,'notes' => $row['notes']
-		,'result_open_date' => $row['result_open_date']
-		,'result_close_date' => $row['result_close_date']
-		,'raku_name' => $row['raku_name']
-		,'price' => $row['price']
+		,'result_open_date' => $result_open_date
+		,'result_close_date' => $result_close_date
+		,'raku_name' => $raku_name
+		,'price' => $price
 		,'version_no' => $row['version_no']
 		,'delete_flag' => $row['delete_flag']
 		,'ins_date' => $row['ins_date']

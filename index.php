@@ -61,8 +61,16 @@ pg_close($link);
 			
 			// 最新の情報を取得
 			$('#get_new_info').click(function(){
-				alert('実装予定です。');
-				// TODO
+				// alert('実装予定です。');
+				$('#success-update').addClass('alert-success');
+				$('#success-update').text("更新中です・・・");
+				$.ajax({
+					url: './_ajax_get_new_info.php',
+					success: function(result){
+						// console.log(result);
+						$('#success-update').text(result);
+					}
+				});
 			});
 			// 案件TYPEを選択
 			$('#kind').change(function(){
@@ -277,6 +285,12 @@ pg_close($link);
 		.hero-unit{
 			padding:15px;
 		}
+		.alert-success{
+			padding:13px;
+			moz-border-radius:10px;
+			-webkit-border-radius:10px;
+			border-radius:10px;
+		}
 	</style>
 </head>
 <body>
@@ -287,6 +301,7 @@ pg_close($link);
 		<br>
 		<a class="btn btn-primary btn-large" id="get_new_info">最新の情報を取得</a>
 	</div>
+	<p id="success-update"></p>
 	<div class="row">
 		<div class="span3">
 			<p>案件TYPE</p>
@@ -348,6 +363,7 @@ pg_close($link);
 	
 	<footer class="footer">
 		<p>FOOTER</p>
+		<p><a href="http://twitter.github.com/bootstrap/">bootstrap</a></p>
 	</footer>
 </div>
 </body>
