@@ -1,3 +1,33 @@
+<?php
+require_once 'functions.php';
+require_once 'config.php';
+
+$anken_list = array();
+
+$link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PASSWORD);
+$sql = "select modified from histories order by modified desc limit 1";
+$result = pg_query($sql);
+
+/*
+for($i = 0; $i < pg_num_rows($result); $i++){
+	$row = pg_fetch_array($result, null, PGSQL_ASSOC);
+	
+	array_push(
+		$anken_list, 
+		array(
+			'id' => $row['id'], 
+			'anken_no' => $row['anken_no']
+		)
+	);
+}
+*/
+
+$row = pg_fetch_array($result, null, PGSQL_ASSOC);
+$history_timestamp = $row['modified'];
+pg_close($link);
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -253,7 +283,7 @@
 <div class="container">
 	<div class="hero-unit">
 		<h1>HEADER</h1>
-		<p>description</p>
+		<p>更新日:　<?php echo h($history_timestamp) ?></p>
 		<br>
 		<a class="btn btn-primary btn-large" id="get_new_info">最新の情報を取得</a>
 	</div>
