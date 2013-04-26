@@ -62,15 +62,21 @@ pg_close($link);
 			// 最新の情報を取得
 			$('#get_new_info').click(function(){
 				// alert('実装予定です。');
+				var button = $(this);
+				
+				button.addClass('disabled')
 				$('#success-update').addClass('alert-success');
 				$('#success-update').text("更新中です・・・");
+
 				$.ajax({
 					url: './_ajax_get_new_info.php',
 					success: function(result){
 						// console.log(result);
+						button.removeClass('disabled');
 						$('#success-update').text(result);
 					}
 				});
+
 			});
 			// 案件TYPEを選択
 			$('#kind').change(function(){
@@ -283,6 +289,7 @@ pg_close($link);
 			width:700px;
 		}
 		.hero-unit{
+			margin-top:42px;
 			padding:15px;
 		}
 		.alert-success{
@@ -291,16 +298,40 @@ pg_close($link);
 			-webkit-border-radius:10px;
 			border-radius:10px;
 		}
+		#kind{
+			height:150px;
+		}
+		#kbn1{
+			height:150px;
+		}
+		#kbn2{
+			height:150px;
+		}
+		#anken{
+			height:150px;
+		}
 	</style>
 </head>
 <body>
 <div class="container">
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav">
+					<li class="active"><a href="./index.php">Home</a></li>
+					<li><a href="">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
 	<div class="hero-unit">
-		<h1>HEADER</h1>
 		<p>更新日:　<?php echo h($history_timestamp) ?></p>
 		<br>
-		<a class="btn btn-primary btn-large" id="get_new_info">最新の情報を取得</a>
+		<button type="button" id="get_new_info" class="btn btn-primary btn-large">最新の情報を取得</button>
 	</div>
+	
 	<p id="success-update"></p>
 	<div class="row">
 		<div class="span3">
