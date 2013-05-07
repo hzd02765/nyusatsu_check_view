@@ -5,11 +5,12 @@ require_once 'config.php';
 $anken_list = array();
 
 $link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PASSWORD);
-$sql = "select modified from histories order by modified desc limit 1";
+// $sql = "select modified from histories order by modified desc limit 1";
+$sql = "select id, process_start, process_end, process_seconds, count_tenders from j_histories order by process_end desc limit 1";
 $result = pg_query($sql);
 
 $row = pg_fetch_array($result, null, PGSQL_ASSOC);
-$history_timestamp = $row['modified'];
+$history_timestamp = $row['process_end'];
 pg_close($link);
 
 ?>
