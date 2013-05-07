@@ -4,8 +4,6 @@ require_once 'config.php';
 
 $anken_no = $_GET['q'];
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,23 +16,25 @@ $anken_no = $_GET['q'];
 	<script>
 		$(document).ready(function(){
 			// 案件を選択
-			$('#aaa').click(function(){
 				// var anken_no = $('anken_id').val()
-				var anken_no = '011400-H2504121059-11';
 				
-				var data = 'anken_id=' + anken_no;
+				// var anken_no = '011400-H2504121059-11';
+				var anken_no = $('#anken_no').text();
+				
+				
+				var data = 'anken_no=' + anken_no;
 				
 				// console.log(data);
 				$.ajax({
-					url: './_ajax_get_anken_detail.php',
+					url: './_ajax_get_anken_detail_by_ankenno.php',
 					type: 'POST',
 					data: data,
 					dataType: 'JSON',
 					success: function(result){
-						console.log(result)
+						// console.log(result)
+						
 						// 案件番号
 						$('#anken_no').text(result.anken_no);
-/*
 						// URL
 						$('#anken_url').attr(result.anken_url);
 						$('#anken_url').text(result.anken_url);
@@ -72,10 +72,13 @@ $anken_no = $_GET['q'];
 						$('#anken_raku_name').text(result.raku_name);
 						// 落札金額（税込・円）
 						$('#anken_price').text(result.price);
+/*
 */
 					}
 				});
-			});
+				
+			// $('#aaa').click(function(){
+			// });
 		});
 	</script>
 	<style>
@@ -115,7 +118,7 @@ $anken_no = $_GET['q'];
 
 			<table class="table table-bordered anken-detail">
 				<tbody>
-					<tr><th>案件番号</th><td><span id="anken_no"></span></td></tr>
+					<tr><th>案件番号</th><td><span id="anken_no"><?php echo $anken_no ?></span></td></tr>
 					<tr><th>URL</th><td><a href="" id="anken_url" target="_blank"></a></td></tr>
 					<tr><th>案件名(事業年度・名称)</th><td><span id="anken_name"></span></td></tr>
 					<tr><th>契約種別</th><td><span id="anken_keishu_name"></span></td></tr>
@@ -141,7 +144,9 @@ $anken_no = $_GET['q'];
 	
 	<hr>
 	
+<!--
 	<p><input type="button" name="aaa" value="aaa" id="aaa"></p>
+-->
 	
 	<footer class="footer">
 		<p>FOOTER</p>
