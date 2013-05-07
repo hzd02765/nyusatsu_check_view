@@ -8,20 +8,6 @@ $link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PAS
 $sql = "select modified from histories order by modified desc limit 1";
 $result = pg_query($sql);
 
-/*
-for($i = 0; $i < pg_num_rows($result); $i++){
-	$row = pg_fetch_array($result, null, PGSQL_ASSOC);
-	
-	array_push(
-		$anken_list, 
-		array(
-			'id' => $row['id'], 
-			'anken_no' => $row['anken_no']
-		)
-	);
-}
-*/
-
 $row = pg_fetch_array($result, null, PGSQL_ASSOC);
 $history_timestamp = $row['modified'];
 pg_close($link);
@@ -61,7 +47,6 @@ pg_close($link);
 			
 			// 最新の情報を取得
 			$('#get_new_info').click(function(){
-				// alert('実装予定です。');
 				var button = $(this);
 				
 				button.addClass('disabled')
@@ -71,7 +56,6 @@ pg_close($link);
 				$.ajax({
 					url: './_ajax_get_new_info.php',
 					success: function(result){
-						// console.log(result);
 						button.removeClass('disabled');
 						$('#success-update').text(result);
 					}
@@ -96,13 +80,6 @@ pg_close($link);
 					data: data,
 					dataType: 'JSON',
 					success: function(result){
-/*
-						$('Item', result).each(function(){
-							var value = $('KBN_CD', this).text();
-							var text = $('KBN_NAME', this).text();
-							$('#kbn1').append($('<option>').val(value).text(text));
-						});
-*/
 						for(var i in result){
 							var value = result[i];
 							var text = result[i];
@@ -128,14 +105,6 @@ pg_close($link);
 					data: data,
 					dataType: 'JSON',
 					success: function(result){
-/*
-						$('Item', result).each(function(){
-							var value = $('KBN_CD', this).text();
-							var text = $('KBN_NAME', this).text();
-							$('#kbn2').append($('<option>').val(value).text(text));
-							
-						});
-*/
 						for(var i in result){
 							var value = result[i];
 							var text = result[i];
@@ -160,13 +129,6 @@ pg_close($link);
 					data: data,
 					dataType: 'JSON',
 					success: function(result){
-/*
-						$('Item', result).each(function(){
-							var value = $('ANKEN_ID', this).text();
-							var text = $('ANKEN_NO', this).text();
-							$('#anken').append($('<option>').val(value).text(text));
-						});
-*/
 						for(var i in result){
 							var value = result[i].id;
 							var text = result[i].anken_no;
@@ -190,50 +152,6 @@ pg_close($link);
 					data: data,
 					dataType: 'JSON',
 					success: function(result){
-/*
-						// 値の代入
-						$('Item', result).each(function(){
-							// 案件番号
-							$('#anken_no').text($('ANKEN_NO', this).text());
-							// URL
-							$('#anken_url').attr('href', $('ANKEN_URL', this).text());
-							$('#anken_url').text($('ANKEN_URL', this).text());
-							// 案件名(事業年度・名称)
-							$('#anken_name').text($('ANKEN_NAME', this).text());
-							// 契約種別
-							$('#anken_keishu_name').text($('ANKEN_KEISHU_NAME', this).text());
-							// 対象業者の地域要件
-							$('#anken_company_area').text($('ANKEN_COMPANY_AREA', this).text());
-							// 公開開始日時
-							$('#anken_open_date').text($('ANKEN_OPEN_DATE', this).text());
-							// 公開終了日時
-							$('#anken_close_date').text($('ANKEN_CLOSE_DATE', this).text());
-							// 入札日時
-							$('#anken_tender_date').text($('ANKEN_TENDER_DATE', this).text());
-							// 入札場所
-							$('#anken_tender_place').text($('ANKEN_TENDER_PLACE', this).text());
-							// 履行期限
-							$('#anken_limit_date').text($('ANKEN_LIMIT_DATE', this).text());
-							// 業務大分類
-							$('#anken_gyoumu_kbn_1').text($('ANKEN_GYOUMU_KBN_1', this).text());
-							// 業務小分類
-							$('#anken_gyoumu_kbn_2').text($('ANKEN_GYOUMU_KBN_2', this).text());
-							// 実施機関
-							$('#anken_kasitu_name').text($('ANKEN_KASITU_NAME', this).text());
-							// 担当者名・電話番号
-							$('#anken_tanto_name').text($('ANKEN_TANTO_NAME', this).text());
-							// 特記事項
-							$('#anken_notes').text($('ANKEN_NOTES', this).text());
-							// 結果表示開始日時
-							$('#anken_result_open_date').text($('ANKEN_RESULT_OPEN_DATE', this).text());
-							// 結果表示終了日時
-							$('#anken_result_close_date').text($('ANKEN_RESULT_CLOSE_DATE', this).text());
-							// 落札業者名等
-							$('#anken_raku_name').text($('ANKEN_RAKU_NAME', this).text());
-							// 落札金額（税込・円）
-							$('#anken_price').text($('ANKEN_PRICE', this).text());
-						});
-*/
 						// 案件番号
 						$('#anken_no').text(result.anken_no);
 						// URL
@@ -320,6 +238,7 @@ pg_close($link);
 			<div class="container">
 				<ul class="nav">
 					<li class="active"><a href="./index.php">Home</a></li>
+					<li><a href="./search.php">Search</a></li>
 					<li><a href="">Help</a></li>
 				</ul>
 			</div>
