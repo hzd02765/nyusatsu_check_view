@@ -155,7 +155,7 @@ pg_close($link);
 						// 案件番号
 						$('#anken_no').text(result.anken_no);
 						// URL
-						$('#anken_url').attr(result.anken_url);
+						$('#anken_url').attr('href', result.anken_url);
 						$('#anken_url').text(result.anken_url);
 						// 案件名(事業年度・名称)
 						$('#anken_name').text(result.anken_name);
