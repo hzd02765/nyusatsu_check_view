@@ -5,6 +5,7 @@ require_once '../config.php';
 $raku_name = '';
 if(!empty($_GET['raku_name'])){
 	$raku_name = $_GET['raku_name'];
+	$l_year = $_GET['l_year'];
 	
 	$link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PASSWORD);
 	if (!$link) {
@@ -12,13 +13,23 @@ if(!empty($_GET['raku_name'])){
 		exit;
 	}
 
-	$sql = sprintf("select * from v_raku_name_year where raku_name like '%s' order by l_year", $raku_name);
+	$sql = "
+		select *
+		from t_tenders
+		where 
+			raku_name like '%s'
+			and limit_date between '%s' and '%s'
+	";
+	$from = $l_year.'-01-01';
+	$to = $l_year.'-12-31';
+	$sql = sprintf($sql, $raku_name, $from, $to);
 // var_dump($sql);
+// exit;
 	$result = pg_query($sql);
 
-	$l_years = array();
+	$anken_no_list = array();
 	while($row = pg_fetch_array($result, null, PGSQL_ASSOC)){
-		array_push($l_years, $row['l_year']);
+		array_push($anken_no_list, $row['anken_no']);
 	}
 
 	pg_close($link);
@@ -34,13 +45,12 @@ if(!empty($_GET['raku_name'])){
 <form method="GET" action="./raku_name_40.php">
 	<input type="hidden" name="raku_name" value="<?php echo $raku_name ?>">
 	<p>keyword : <?php echo $raku_name ?></p>
-	<select name="l_year" size="10">
-		<?php foreach($l_years as $index => $l_year): ?>
-		<?php $selected = ($index == 0) ? 'selected' : '' ?>
-		<option value="<?php echo $l_year ?>" <?php echo $selected ?>><?php echo $l_year ?></option>
+	<p>limit year : <?php echo $l_year ?></p>
+	<li>
+		<?php foreach($anken_no_list as $index => $anken_no): ?>
+		<ul><a href="../search.php?q=<?php echo $anken_no ?>"><?php echo $anken_no ?></a></ul>
 		<?php endforeach; ?>
-	<select>
-	<p><input type="submit" name="submit" value="決定"></p>
+	</li>
 </form>
 </body>
 </html>
