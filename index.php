@@ -55,7 +55,7 @@ pg_close($link);
 				$('#success-update').text("更新中です・・・");
 
 				$.ajax({
-					url: './_ajax_get_new_info.php',
+					url: './ajax/_ajax_get_new_info.php',
 					success: function(result){
 						button.removeClass('disabled');
 						$('#success-update').text(result);
@@ -76,7 +76,7 @@ pg_close($link);
 				
 				var data = $(this).val();		
 				$.ajax({
-					url: './_ajax_get_kbn1.php',
+					url: './ajax/_ajax_get_kbn1.php',
 					type: 'POST',
 					data: data,
 					dataType: 'JSON',
@@ -101,7 +101,7 @@ pg_close($link);
 
 				var data = 'gyoumu_kbn_1=' + $(this).val() + '&' + $('#kind').val();
 				$.ajax({
-					url: './_ajax_get_kbn2.php',
+					url: './ajax/_ajax_get_kbn2.php',
 					type: 'POST',
 					data: data,
 					dataType: 'JSON',
@@ -125,7 +125,7 @@ pg_close($link);
 
 				var data = 'gyoumu_kbn_1=' + $('#kbn1').val() + '&gyoumu_kbn_2=' + $(this).val() + '&' + $('#kind').val();
 				$.ajax({
-					url: './_ajax_get_anken.php',
+					url: './ajax/_ajax_get_anken.php',
 					type: 'POST',
 					data: data,
 					dataType: 'JSON',
@@ -148,7 +148,7 @@ pg_close($link);
 				
 				var data = 'anken_id=' + $(this).val();
 				$.ajax({
-					url: './_ajax_get_anken_detail.php',
+					url: './ajax/_ajax_get_anken_detail.php',
 					type: 'POST',
 					data: data,
 					dataType: 'JSON',
@@ -240,6 +240,8 @@ pg_close($link);
 				<ul class="nav">
 					<li class="active"><a href="./index.php">Home</a></li>
 					<li><a href="./search.php">Search</a></li>
+					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
+					<li><a href="./gyomu_kbn_10.php">Gyoumu_Kbn</a></li>
 					<li><a href="">Help</a></li>
 				</ul>
 			</div>

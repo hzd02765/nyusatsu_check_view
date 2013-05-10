@@ -24,7 +24,7 @@ $anken_no = $_GET['q'];
 			
 			// console.log(data);
 			$.ajax({
-				url: './_ajax_get_anken_detail_by_ankenno.php',
+				url: './ajax/_ajax_get_anken_detail_by_ankenno.php',
 				type: 'POST',
 				data: data,
 				dataType: 'JSON',
