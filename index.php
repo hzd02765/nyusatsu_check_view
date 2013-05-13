@@ -241,7 +241,7 @@ pg_close($link);
 					<li class="active"><a href="./index.php">Home</a></li>
 					<li><a href="./search.php">Search</a></li>
 					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
-					<li><a href="./gyomu_kbn_10.php">Gyoumu_Kbn</a></li>
+					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
 					<li><a href="">Help</a></li>
 				</ul>
 			</div>
