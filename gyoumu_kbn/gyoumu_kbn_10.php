@@ -27,7 +27,7 @@
 	</script>
 </head>
 <body>
-<form method="GET" action="./gyoumu_kbn_20.php.php">
+<form method="GET" action="./gyoumu_kbn_20.php">
 	<div>
 		<p>大分類</p>
 		<select name="kbn1" id='kbn1' size="10">
