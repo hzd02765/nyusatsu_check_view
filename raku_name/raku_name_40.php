@@ -40,17 +40,30 @@ if(!empty($_GET['raku_name'])){
 <head>
 	<meta charset="UTF-8" />
 	<title>NYUSATSU_CHECK_VIEW</title>
+	<script src="../js/jquery-1.7.2.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#button').click(function(){
+				var ankenNo = $('#anken_no').val();
+				url = '../search.php?q=' + ankenNo;
+				// console.log(url);
+				window.location = url;
+			});
+		});
+	</script>	
 </head>
 <body>
 <form method="GET" action="./raku_name_40.php">
 	<input type="hidden" name="raku_name" value="<?php echo $raku_name ?>">
 	<p>keyword : <?php echo $raku_name ?></p>
 	<p>limit year : <?php echo $l_year ?></p>
-	<li>
-		<?php foreach($anken_no_list as $index => $anken_no): ?>
-		<ul><a href="../search.php?q=<?php echo $anken_no ?>"><?php echo $anken_no ?></a></ul>
-		<?php endforeach; ?>
-	</li>
+	<select name="anken_no" id="anken_no" size="10">
+	<?php foreach($anken_no_list as $index => $anken_no): ?>
+		<?php $selected = ($index == 0) ? 'selected' : '' ; ?>
+		<option value="<?php echo $anken_no ?>" <?php echo $selected ?>><?php echo $anken_no ?></option>
+	<?php endforeach; ?>
+	</select>
+	<p><input type="button" name="button" id="button" value="選択"></p>
 </form>
 </body>
 </html>
