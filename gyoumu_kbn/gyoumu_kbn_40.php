@@ -1,21 +1,26 @@
 <?php
 
-$link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PASSWORD);
-if (!$link) {
-	echo "An error occurred.\n";
-	exit;
-}
+require_once '../config.php';
+require_once '../functions.php';
+
+$link = db_connect();
 
 $sql = "
 	select *
 	from t_tenders
 	where 
 		gyoumu_kbn_1 = '%s'
-		ane gyoumu_kbn_2 = '%s'
+		and gyoumu_kbn_2 = '%s'
 		and limit_date between '%s' and '%s'
 ";
+
+$kbn1 = $_GET['kbn1'];
+$kbn2 = $_GET['kbn2'];
+$l_year = $_GET['l_year'];
+
 $from = $l_year.'-01-01';
 $to = $l_year.'-12-31';
+
 $sql = sprintf($sql, $kbn1, $kbn2, $from, $to);
 // var_dump($sql);
 // exit;
@@ -35,37 +40,31 @@ pg_close($link);
 	<script src="../js/jquery-1.7.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
-		
-			// 業務小分類
-			var kbn1 = $('#kbn1').val();
-			var kbn2 = $('#kbn2').val();
-			var data = {'kbn1' : kbn1, 'kbn2' :kbn2};
-			$.ajax({
-				url: '../ajax/_ajax_get_lyear_from_tenders.php',
-				type: 'POST',
-				data: data,					
-				dataType: 'JSON',
-				success: function(result){
-					for(var i in result){
-						var value = result[i];
-						var text = result[i];
-						$('#l_year').append($('<option>').val(value).text(text));
-					}
-				}
+			$('#button').click(function(){
+				// 業務小分類
+				var url = $('#anken_no').val();
+				url = '../search.php?q=' + url;
+				// console.log(url);
+				window.location = url;
 			});
 		});
 	</script>
 </head>
 <body>
 <form method="GET" action="./gyoumu_kbn_40.php">
-	<p><input type="text" name="kbn1" id="kbn1" value="<?php echo $_GET['kbn1'] ?>"></p>
-	<p><input type="text" name="kbn2" id="kbn2" value="<?php echo $_GET['kbn2'] ?>"></p>
+	<p>大分類：<?php echo $_GET['kbn1'] ?></p>
+	<p>小分類：<?php echo $_GET['kbn2'] ?></p>
+	<p>履行期限(年)：<?php echo $_GET['l_year'] ?></p>
 	<div>
-		<p>履行期限：年</p>
-		<select name="l_year" id='l_year' size="10">
+		<p>案件番号</p>
+		<select name="anken_no" id='anken_no' size="10">
+		<?php foreach($anken_no_list as $index => $anken_no): ?>
+			<?php echo $selected = ($index == 0) ? 'selected': ''; ?>
+			<option <?php echo $selected ?>><?php echo $anken_no; ?></option>
+		<?php endforeach; ?>
 		</select>
 	</div>
-	<p><input type="submit" name="submit" value="選択"></p>
+	<p><input type="button" name="button" id="button" value="選択"></p>
 </form>
 </body>
 </html>
