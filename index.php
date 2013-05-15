@@ -242,7 +242,9 @@ pg_close($link);
 					<li><a href="./search/search.php">Search</a></li>
 					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
 					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
-					<li><a href="">Help</a></li>
+					<li><a href="./chart/chart10.php">Chart</a></li>
+					<li><a href="./etc/etc10.php">etc</a></li>
+					<li><a href="./help/help10.php">Help</a></li>
 				</ul>
 			</div>
 		</div>
