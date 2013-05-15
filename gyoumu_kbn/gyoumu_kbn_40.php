@@ -43,7 +43,7 @@ pg_close($link);
 			$('#button').click(function(){
 				// 業務小分類
 				var url = $('#anken_no').val();
-				url = '../search.php?q=' + url;
+				url = '../search/search.php?q=' + url;
 				// console.log(url);
 				window.location = url;
 			});
