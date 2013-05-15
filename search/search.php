@@ -1,8 +1,11 @@
 <?php
-require_once 'functions.php';
-require_once 'config.php';
+require_once '../functions.php';
+require_once '../config.php';
 
-$anken_no = $_GET['q'];
+$anken_no = '';
+if(!empty($_GET['q'])){
+	$anken_no = $_GET['q'];
+}
 
 ?>
 
@@ -11,13 +14,16 @@ $anken_no = $_GET['q'];
 <head>
 	<meta charset="UTF-8" />
 	<title>NYUSATSU_CHECK_VIEW</title>
-	<link href="./css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="./js/jquery-1.7.2.min.js"></script>
+	<link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.7.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			// 案件を選択
 
 			var anken_no = $('#anken_no').text();
+			if(anken_no === ''){
+				return false;
+			}
 			
 			
 			var data = 'anken_no=' + anken_no;
@@ -97,9 +103,11 @@ $anken_no = $_GET['q'];
 		<div class="navbar-inner">
 			<div class="container">
 				<ul class="nav">
-					<li><a href="./index.php">Home</a></li>
-					<li class="active"><a href="./search.php">search</a></li>
-					<li><a href="">Help</a></li>
+					<li><a href="../index.php">Home</a></li>
+					<li class="active"><a href="./search/search.php">Search</a></li>
+					<li><a href="../raku_name/raku_name_10.php">Raku_Name</a></li>
+					<li><a href="../gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
+					<li><a href="../help/help.php">Help</a></li>
 				</ul>
 			</div>
 		</div>
@@ -107,11 +115,17 @@ $anken_no = $_GET['q'];
 	
 	<div class="row anken">
 		<div class="span16">
-			<p>詳細</p>
+			<div>
+				<span>案件番号</span>
+				<input type="text" name="q" id="q" value="<?php echo $anken_no ?>">
+				<input type="button" name="button" id="button" value="検索">
+			</div>
 
+			<hr>
+			
 			<table class="table table-bordered anken-detail">
 				<tbody>
-					<tr><th>案件番号</th><td><span id="anken_no"><?php echo $anken_no ?></span></td></tr>
+					<tr><th>案件番号</th><td><span id="anken_no"></span></td></tr>
 					<tr><th>URL</th><td><a href="" id="anken_url" target="_blank"></a></td></tr>
 					<tr><th>案件名(事業年度・名称)</th><td><span id="anken_name"></span></td></tr>
 					<tr><th>契約種別</th><td><span id="anken_keishu_name"></span></td></tr>

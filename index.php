@@ -20,8 +20,8 @@ pg_close($link);
 <head>
 	<meta charset="UTF-8" />
 	<title>NYUSATSU_CHECK_VIEW</title>
-	<link href="./css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="./js/jquery-1.7.2.min.js"></script>
+	<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="js/jquery-1.7.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			// 大分類を空に
@@ -239,7 +239,7 @@ pg_close($link);
 			<div class="container">
 				<ul class="nav">
 					<li class="active"><a href="./index.php">Home</a></li>
-					<li><a href="./search.php">Search</a></li>
+					<li><a href="./search/search.php">Search</a></li>
 					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
 					<li><a href="./gyomu_kbn_10.php">Gyoumu_Kbn</a></li>
 					<li><a href="">Help</a></li>
