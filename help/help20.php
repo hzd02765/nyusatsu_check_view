@@ -35,38 +35,37 @@ if ($flag){
 <head>
 	<meta charset="UTF-8" />
 	<title>NYUSATSU_CHECK_VIEW</title>
-	<link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../js/nicEdit/nicEdit.js"></script>
+	<script type="text/javascript">
+		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+		
+		$(document).ready(function(){
+			$('#button').click(function(){
+				var text = $('.nicEdit-main')[0].innerHTML;
+				// console.log(a);
+				
+				var data = {'text' : text};
+				
+				$.ajax({
+					url: '_ajax_help10.php',
+					type: 'POST',
+					data: data,
+					dataType: 'JSON',
+					success: function(result){
+						// console.log(result)
+						window.location = './help10.php';
+					}
+/*
+*/
+				});
+			});
+		});
+	</script>
 </head>
 <body>
-<div class="container">
-
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<ul class="nav">
-					<li><a href="./index.php">Home</a></li>
-					<li><a href="./search/search.php">Search</a></li>
-					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
-					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
-					<li><a href="./chart/chart10.php">Chart</a></li>
-					<li><a href="./etc/etc10.php">etc</a></li>
-					<li class="active"><a href="./help/help10.php">Help</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
+	<textarea name="area1" id = "area1" cols="40"><?php echo $text ?></textarea>
 	<br>
-	<br>
-	<hr>
-	
-	<?php echo $text; ?>
-	
-	<br>
-	<hr>
-	
-	<a href="./help20.php">編集</a>
-</div>
+	<input type="button" name="button" id="button" value="決定">
 </body>
 </html>
