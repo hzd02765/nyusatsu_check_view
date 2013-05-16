@@ -38,7 +38,10 @@ if ($flag){
 	<script src="../js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="../js/nicEdit/nicEdit.js"></script>
 	<script type="text/javascript">
-		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+		bkLib.onDomLoaded(function() { 
+			// nicEditors.allTextAreas();
+			new nicEditor({fullPanel : true, iconsPath : '../js/nicEdit/nicEditorIcons.gif'}).panelInstance('area1');
+		});
 		
 		$(document).ready(function(){
 			$('#button').click(function(){
