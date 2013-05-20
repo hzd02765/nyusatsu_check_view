@@ -38,7 +38,7 @@
 	  <div class="well sidebar-nav">
 		<ul class="nav nav-list">
 		  <li class="nav-header">Sidebar</li>
-		  <li><a href="./etc20.php">結果表示期間が1カ月未満の案件を抽出</a></li>
+		  <li><a href="./etc20.php">結果表示期間が1カ月未満の案件</a></li>
 		  <li class="active"><a href="#">Link</a></li>
 		  <li><a href="#">Link</a></li>
 		  <li><a href="#">Link</a></li>

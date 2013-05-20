@@ -81,7 +81,7 @@ pg_close($link);
 	  <div class="well sidebar-nav" data-spy="affix">
 		<ul class="nav nav-list">
 		  <li class="nav-header">Sidebar</li>
-		  <li class="active"><a href="#">結果表示期間が1カ月未満の案件を抽出</a></li>
+		  <li class="active"><a href="#">結果表示期間が1カ月未満の案件</a></li>
 		  <li><a href="#">Link</a></li>
 		  <li><a href="#">Link</a></li>
 		  <li><a href="#">Link</a></li>
