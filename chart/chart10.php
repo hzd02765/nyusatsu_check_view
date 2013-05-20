@@ -20,8 +20,8 @@
 					<li><a href="./search/search.php">Search</a></li>
 					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
 					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
-					<li><a href="./chart/chart10.php">Chart</a></li>
-					<li class="active"><a href="./etc/etc10.php">etc</a></li>
+					<li class="active"><a href="./chart/chart10.php">Chart</a></li>
+					<li><a href="./etc/etc10.php">etc</a></li>
 					<li><a href="./help/help10.php">Help</a></li>
 				</ul>
 			</div>
@@ -37,22 +37,21 @@
 	<div class="span3">
 	  <div class="well sidebar-nav">
 		<ul class="nav nav-list">
-		  <li class="nav-header">Sidebar</li>
-		  <li><a href="./etc20.php">結果表示期間が1カ月未満の案件</a></li>
-		  <li class="active"><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li class="nav-header">Sidebar</li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li class="nav-header">Sidebar</li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
-		  <li><a href="#">Link</a></li>
+			<li class="nav-header">test</li>
+			<li><a href="./test_chart10.php">test</a></li>
+			<li><a href="./test_chart20.php">test</a></li>
+			<li><a href="./test_chart30.php">test</a></li>
+			<li class="nav-header">Sidebar</li>
+			<li><a href="chart20.php">月別案件</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li class="nav-header">Sidebar</li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
 		</ul>
 	  </div><!--/.well -->
 	</div><!--/span-->
