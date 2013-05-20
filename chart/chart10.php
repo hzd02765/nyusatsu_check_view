@@ -42,7 +42,7 @@
 			<li><a href="./test_chart20.php">test</a></li>
 			<li><a href="./test_chart30.php">test</a></li>
 			<li class="nav-header">Sidebar</li>
-			<li><a href="chart_20.php">月別案件</a></li>
+			<li><a href="chart20.php">月別案件</a></li>
 			<li><a href="#">Link</a></li>
 			<li><a href="#">Link</a></li>
 			<li><a href="#">Link</a></li>
