@@ -157,10 +157,10 @@ if(!empty($_GET['q'])){
 			<div class="container">
 				<ul class="nav">
 					<li><a href="../index.php">Home</a></li>
-					<li class="active"><a href="./search/search.php">Search</a></li>
+					<li class="active"><a href="../search/search.php">Search</a></li>
 					<li><a href="../raku_name/raku_name_10.php">Raku_Name</a></li>
 					<li><a href="../gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
-					<li><a href="../help/help.php">Help</a></li>
+					<li><a href="../help/help10.php">Help</a></li>
 				</ul>
 			</div>
 		</div>
