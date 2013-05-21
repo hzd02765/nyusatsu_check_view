@@ -114,7 +114,7 @@ if __name__ == '__main__':
 			else:
 				break
 				
-		print('## exit href')
+		# print('## exit href')
 		for href in list:
 
 			try:
