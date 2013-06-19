@@ -1,3 +1,3 @@
 #!/bin/sh
 
-find /usr/local/app/nyusatsu_check_view -type f -name "*.php" | sort > file_list.txt
+find /var/www/html/dev/nyusatsu_check_view -type f -name "*.php" | sort > file_list.txt

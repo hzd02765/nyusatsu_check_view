@@ -4,7 +4,7 @@ import urllib2
 
 from pprint import pprint
 
-SITE_URL = 'http://ce50h7/nyusatsu_check_view/'
+SITE_URL = 'http://ce50h7/dev/nyusatsu_check_view/'
 
 def clean_string(string):
 	string_f = string
@@ -48,6 +48,7 @@ if __name__ == '__main__':
 			
 		list = line.split('/')
 		
+		list.pop(0)
 		list.pop(0)
 		list.pop(0)
 		list.pop(0)
