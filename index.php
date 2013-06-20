@@ -5,7 +5,7 @@ require_once 'config.php';
 $anken_list = array();
 
 $link = pg_connect("host=".HOST." dbname=".DBNAME." user=".USER." password=".PASSWORD);
-// $sql = "select modified from histories order by modified desc limit 1";
+
 $sql = "select id, process_start, process_end, process_seconds, count_tenders from j_histories order by process_end desc limit 1";
 $result = pg_query($sql);
 
@@ -46,23 +46,6 @@ pg_close($link);
 				$('.anken-detail tr td a').text('');
 			}
 			
-			// 最新の情報を取得
-			$('#get_new_info').click(function(){
-				var button = $(this);
-				
-				button.addClass('disabled')
-				$('#success-update').addClass('alert-success');
-				$('#success-update').text("更新中です・・・");
-
-				$.ajax({
-					url: './ajax/_ajax_get_new_info.php',
-					success: function(result){
-						button.removeClass('disabled');
-						$('#success-update').text(result);
-					}
-				});
-
-			});
 			// 案件TYPEを選択
 			$('#kind').change(function(){
 				emptyKbn1();
@@ -207,16 +190,7 @@ pg_close($link);
 		.anken-detail td{
 			width:700px;
 		}
-		.hero-unit{
-			margin-top:42px;
-			padding:15px;
-		}
-		.alert-success{
-			padding:13px;
-			moz-border-radius:10px;
-			-webkit-border-radius:10px;
-			border-radius:10px;
-		}
+
 		#kind{
 			height:150px;
 		}
@@ -244,16 +218,11 @@ pg_close($link);
 					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
 					<li><a href="./chart/chart10.php">Chart</a></li>
 					<li><a href="./etc/etc10.php">etc</a></li>
+					<li><a href="./options/options10.php">Options</a></li>
 					<li><a href="./help/help10.php">Help</a></li>
 				</ul>
 			</div>
 		</div>
-	</div>
-
-	<div class="hero-unit">
-		<p>更新日:　<?php echo h($history_timestamp) ?></p>
-		<br>
-		<button type="button" id="get_new_info" class="btn btn-primary btn-large">最新の情報を取得</button>
 	</div>
 	
 	<p id="success-update"></p>
@@ -293,8 +262,7 @@ pg_close($link);
 					<tr><th>案件番号</th><td><span id="anken_no"></span></td></tr>
 					<tr><th>URL</th><td><a href="" id="anken_url" target="_blank"></a></td></tr>
 					<tr><th>案件名(事業年度・名称)</th><td><span id="anken_name"></span></td></tr>
-					<tr><th>契約種別</th><td><span id="anken_keishu_name"></span></td></tr>
-					<tr><th>対象業者の地域要件</th><td><span id="anken_company_area"></span></td></tr>
+					<tr><th>契約種別・対象業者の地域要件</th><td><span id="anken_keishu_name"></span><span id="anken_company_area"></span></td></tr>
 					<tr><th>公開開始日時</th><td><span id="anken_open_date"></span></td></tr>
 					<tr><th>公開終了日時</th><td><span id="anken_close_date"></span></td></tr>
 					<tr><th>入札日時</th><td><span id="anken_tender_date"></span></td></tr>
@@ -302,8 +270,7 @@ pg_close($link);
 					<tr><th>履行期限</th><td><span id="anken_limit_date"></span></td></tr>
 					<tr><th>業務大分類</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
 					<tr><th>業務小分類</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
-					<tr><th>実施機関</th><td><span id="anken_kasitu_name"></span></td></tr>
-					<tr><th>担当者名・電話番号</th><td><span id="anken_tanto_name"></span></td></tr>
+					<tr><th>実施機関・担当者名・電話番号</th><td><span id="anken_kasitu_name"></span>　<span id="anken_tanto_name"></span></td></tr>
 					<tr><th>特記事項</th><td><span id="anken_notes"></span></td></tr>
 					<tr><th>結果表示開始日時</th><td><span id="anken_result_open_date"></span></td></tr>
 					<tr><th>結果表示終了日時</th><td><span id="anken_result_close_date"></span></td></tr>
