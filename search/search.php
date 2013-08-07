@@ -17,7 +17,9 @@ if(!empty($_GET['q'])){
 	<title>NYUSATSU_CHECK_VIEW</title>
 	<link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.7.2.min.js"></script>
-	<script>
+	<script type="text/javascript">
+
+		/* 案件詳細の初期化 */
 		function clear_anken(){
 			// 案件番号
 			$('#anken_no').text('');
@@ -58,6 +60,7 @@ if(!empty($_GET['q'])){
 			// 落札金額（税込・円）
 			$('#anken_price').text('');
 		}
+		/* 案件の取得 */
 		function get_anken(anken_no){
 			var data = 'anken_no=' + anken_no;
 			
@@ -113,25 +116,22 @@ if(!empty($_GET['q'])){
 			});
 		}
 		$(document).ready(function(){
-			// 案件を選択
-
-			var anken_no = $('#anken_id').val();
-			console.log(anken_no);
-			
-			if(anken_no === ''){
-				return false;
-			}
-			
-			get_anken(anken_no);
-
-			
 			$('#button').click(function(){
+				console.log(0);
 				var anken_no = $('#q').val();
 				console.log(anken_no);
 				
 				clear_anken();
 				get_anken(anken_no);
 			});
+
+			// 案件を選択
+			var anken_no = $('#anken_id').val();
+			console.log("anken_no" + anken_no);
+		
+			if(anken_no !== ''){
+				get_anken(anken_no);
+			}	
 		});
 	</script>
 	<style>

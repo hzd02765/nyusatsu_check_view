@@ -45,7 +45,7 @@ if(!empty($_GET['raku_name'])){
 		$(document).ready(function(){
 			$('#button').click(function(){
 				var ankenNo = $('#anken_no').val();
-				url = '../search.php?q=' + ankenNo;
+				url = '../search/search.php?q=' + ankenNo;
 				// console.log(url);
 				window.location = url;
 			});
