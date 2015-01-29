@@ -6,7 +6,7 @@ $sql = "
 	select 
 		gyoumu_kbn_2
 	from 
-		t_nyusatsu
+		v_latest_tenders
 	where
 		keishu_cd = {$_POST['keishu_cd']}
 		and public_flag = {$_POST['public_flag']}

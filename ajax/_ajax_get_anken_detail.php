@@ -6,7 +6,7 @@ $sql = "
 	select 
 		*
 	from 
-		t_nyusatsu
+		v_latest_tenders
 	where
 		id = {$_POST['anken_id']}
 ";

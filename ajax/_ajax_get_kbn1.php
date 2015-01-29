@@ -6,7 +6,7 @@ $sql = "
 	select 
 		gyoumu_kbn_1
 	from 
-		t_nyusatsu
+		v_latest_tenders
 	where
 		keishu_cd = {$_POST['keishu_cd']}
 		and public_flag = {$_POST['public_flag']}
@@ -15,6 +15,9 @@ $sql = "
 	order by
 		gyoumu_kbn_1
 ";
+
+// echo $sql;
+
 $result = pg_query($sql);
 for($i = 0; $i < pg_num_rows($result); $i++){
 	$row = pg_fetch_array($result, null, PGSQL_ASSOC);
