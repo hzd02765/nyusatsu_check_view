@@ -13,8 +13,15 @@ $histories = array();
 while($row = pg_fetch_array($result, null, PGSQL_ASSOC)){	
 	$history = array();
 	
-	$process_start = array_shift(explode('.', $row['process_start']));
-	$process_end = array_shift(explode('.', $row['process_end']));
+	// var_dump(explode('.', $row['process_start']));
+	
+	$ary = array();
+	
+	$ary = explode('.', $row['process_start']);
+	$process_start = array_shift($ary);
+	
+	$ary = explode('.', $row['process_end']);
+	$process_end = array_shift($ary);
 	
 	$history['id'] = $row['id'];
 	$history['process_start'] = $process_start;
