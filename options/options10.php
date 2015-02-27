@@ -55,13 +55,34 @@ pg_close($link);
 
 				$.ajax({
 					url: './_ajax_get_new_info.php',
+					dataType: 'json',
 					success: function(result){
 						button.removeClass('disabled');
-						$('#success-update').text(result);
+						$('#success-update').text("更新しました。");
+						var table = $('tbody');
+						for(var i=0; i < result.length; i++){
+							var id = result[i].id;
+							var process_start = result[i].process_start;
+							var process_end = result[i].process_end;
+							var process_seconds = result[i].process_seconds;
+							var count_tenders = result[i].count_tenders;
+							
+							var tr = $('<tr/>')
+							var td = $('<td/>').text(process_start).addClass('slide');
+							tr.append(td);
+							var td = $('<td/>').text(process_end).addClass('slide');
+							tr.append(td);
+							var td = $('<td/>').text(process_seconds).addClass('slide');
+							tr.append(td);
+							var td = $('<td/>').text(count_tenders).addClass('slide');
+							tr.append(td);
+							table.prepend(tr);
+										$('.slide').slideDown("first");
+						}
+						
 					}
 				});
-
-			});			
+			});
 		});
 	</script>
 	<style>
@@ -81,6 +102,9 @@ pg_close($link);
 			moz-border-radius:10px;
 			-webkit-border-radius:10px;
 			border-radius:10px;
+		}
+		.slide {
+			display:none;
 		}
 	</style>
 </head>
@@ -112,15 +136,16 @@ pg_close($link);
 
 	<div class="row">
 		<div class="span16">
-			<table class="table table-bordered anken-detail">
-				<tbody>
+			<table class="table table-bordered anken-detail" id="history_list">
+				<thead>
 					<tr>
 						<th>process_start</th>
 						<th>process_end</th>
 						<th>process_seconds</th>
 						<th>count_tenders</th>
 					</tr>
-					
+				</thead>
+				<tbody>
 					<?php foreach($histories as $history): ?>
 					<tr>
 						<td><?php echo $history['process_start'] ?></td>

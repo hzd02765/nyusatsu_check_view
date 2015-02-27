@@ -1,6 +1,6 @@
 <?php
-require_once 'functions.php';
-require_once 'config.php';
+require_once '../functions.php';
+require_once '../config.php';
 
 $anken_list = array();
 
@@ -20,8 +20,8 @@ pg_close($link);
 <head>
 	<meta charset="UTF-8" />
 	<title>NYUSATSU_CHECK_VIEW</title>
-	<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="js/jquery-1.7.2.min.js"></script>
+	<link href="../css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.7.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			// 大分類を空に
@@ -212,9 +212,9 @@ pg_close($link);
 		<div class="navbar-inner">
 			<div class="container">
 				<ul class="nav">
-					<li class="active"><a href="./index.php">Home</a></li>
+					<li><a href="./index.php">Home</a></li>
 					<li><a href="./search/search.php">Search</a></li>
-					<li><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
+					<li class="active"><a href="./raku_name/raku_name_10.php">Raku_Name</a></li>
 					<li><a href="./gyoumu_kbn/gyoumu_kbn_10.php">Gyoumu_Kbn</a></li>
 					<li><a href="./chart/chart10.php">Chart</a></li>
 					<li><a href="./etc/etc10.php">etc</a></li>
@@ -226,6 +226,14 @@ pg_close($link);
 	</div>
 	
 	<p id="success-update"></p>
+	<div class="row">
+		<div class="span6">
+			<span>落札業者名</span>
+			</br>
+			<input type="text" name="raku_name_keyword" value="" >
+			<input type="submit" name="search" value="検索">
+		</div>
+	</div>
 	<div class="row">
 		<div class="span3">
 			<p>案件TYPE</p>
