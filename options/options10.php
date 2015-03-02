@@ -56,6 +56,13 @@ pg_close($link);
 				$.ajax({
 					url: './_ajax_get_new_info.php',
 					dataType: 'json',
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						// 通常はここでtextStatusやerrorThrownの値を見て処理を切り分けるか、
+						// 単純に通信に失敗した際の処理を記述します。
+						//this; // thisは他のコールバック関数同様にAJAX通信時のオプションを示します。
+						console.log('textStatus : ' & textStatus);
+						console.log('errorThrown : ' & errorThrown);
+					} ,
 					success: function(result){
 						button.removeClass('disabled');
 						$('#success-update').text("更新しました。");
