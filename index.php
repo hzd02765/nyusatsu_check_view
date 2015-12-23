@@ -165,6 +165,15 @@ pg_close($link);
 						$('#anken_kasitu_name').text(result.kasitu_name);
 						// 担当者名・電話番号
 						$('#anken_tanto_name').text(result.tanto_name);
+						// 添付ファイル１
+						$('#anken_attached_file_1').attr('href', result.attached_file_1);
+						$('#anken_attached_file_1').text(result.attached_file_1);
+						// 添付ファイル２
+						$('#anken_attached_file_2').attr('href', result.attached_file_2);
+						$('#anken_attached_file_2').text(result.attached_file_2);
+						// 添付ファイル３
+						$('#anken_attached_file_3').attr('href', result.attached_file_3);
+						$('#anken_attached_file_3').text(result.attached_file_3);
 						// 特記事項
 						$('#anken_notes').text(result.notes);
 						// 結果表示開始日時
@@ -271,6 +280,9 @@ pg_close($link);
 					<tr><th>業務大分類</th><td><span id="anken_gyoumu_kbn_1"></span></td></tr>
 					<tr><th>業務小分類</th><td><span id="anken_gyoumu_kbn_2"></span></td></tr>
 					<tr><th>実施機関・担当者名・電話番号</th><td><span id="anken_kasitu_name"></span>　<span id="anken_tanto_name"></span></td></tr>
+					<tr><th>添付ファイル１</th><td><a href="" id="anken_attached_file_1" target="_blank"></a></td></tr>
+					<tr><th>添付ファイル２</th><td><a href="" id="anken_attached_file_2" target="_blank"></a></td></tr>
+					<tr><th>添付ファイル３</th><td><a href="" id="anken_attached_file_3" target="_blank"></a></td></tr>
 					<tr><th>特記事項</th><td><span id="anken_notes"></span></td></tr>
 					<tr><th>結果表示開始日時</th><td><span id="anken_result_open_date"></span></td></tr>
 					<tr><th>結果表示終了日時</th><td><span id="anken_result_close_date"></span></td></tr>
